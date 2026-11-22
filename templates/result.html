@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Prediction Result</h1>
+
+    <div class="result-box">
+
+        <h2>Predicted Mathematics Score</h2>
+
+        <div class="score">
+            {{ prediction }} / 100
+        </div>
+
+        <p>Reading Score: {{ reading }}</p>
+        <p>Writing Score: {{ writing }}</p>
+
+    </div>
+
+    <a href="/" class="button-link">
+        Predict Another Student
+    </a>
+
+    <br><br>
+
+    <a href="/history" class="history-link">
+        View Prediction History
+    </a>
+
+</div>
+
+</body>
+</html>

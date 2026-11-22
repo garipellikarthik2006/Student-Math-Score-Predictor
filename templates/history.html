@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction History</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container history-container">
+
+    <h1>Student Prediction History</h1>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Gender</th>
+            <th>Reading</th>
+            <th>Writing</th>
+            <th>Predicted Math</th>
+        </tr>
+
+        {% for student in records %}
+
+        <tr>
+            <td>{{ student['id'] }}</td>
+            <td>{{ student['gender'] }}</td>
+            <td>{{ student['reading_score'] }}</td>
+            <td>{{ student['writing_score'] }}</td>
+            <td>{{ "%.2f"|format(student['predicted_math_score']) }}</td>
+        </tr>
+
+        {% else %}
+
+        <tr>
+            <td colspan="5">No predictions available.</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <a href="/" class="button-link">
+        Back to Home
+    </a>
+
+</div>
+
+</body>
+</html>
